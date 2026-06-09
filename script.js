@@ -151,23 +151,7 @@ const portfolioData = {
       "src": "assets/original/HTML img 초안본/08_smaller.png",
       "title": "08 smaller",
       "file": "08_smaller.png"
-    },
-    {
-      "src": "assets/original/HTML img 초안본/x-09_color select-Red.png",
-      "title": "x 09 color select Red",
-      "file": "x-09_color select-Red.png"
-    },
-    {
-      "src": "assets/original/HTML img 초안본/x-09_color select-Teal.png",
-      "title": "x 09 color select Teal",
-      "file": "x-09_color select-Teal.png"
-    },
-    {
-      "src": "assets/original/HTML img 초안본/x-09_color select_Rurple.png",
-      "title": "x 09 color select Rurple",
-      "file": "x-09_color select_Rurple.png"
-    }
-  ],
+    },],
   "revised": [
     {
       "src": "assets/original/HTML img 수정본/01_VELUNE_badblood_cover_structure-home.jpeg",
@@ -447,114 +431,180 @@ const portfolioData = {
   "model": [
     {
       "src": "assets/original/model/Success/Female_model_wearing_black_coat_202606092008.jpeg",
-      "title": "Female model wearing black coat 202606092008",
+      "title": "Black Coat Editorial Look",
       "group": "성공"
     },
     {
       "src": "assets/original/model/Success/Model_wearing_sculptural_black_o…_202606092008.jpeg",
-      "title": "Model wearing sculptural black o… 202606092008",
+      "title": "Sculptural Black Outfit",
       "group": "성공"
     },
     {
       "src": "assets/original/model/Success/VELUNE_fashion_campaign_models_d…_202606092008.jpeg",
-      "title": "VELUNE fashion campaign models d… 202606092008",
+      "title": "VELUNE Campaign Pair",
       "group": "성공"
     },
     {
       "src": "assets/original/model/Failure Cases/Asian_model_wearing_couture_dress_202606092008.jpeg",
-      "title": "Asian model wearing couture dress 202606092008",
+      "title": "Couture Dress Mood Mismatch",
       "group": "실패"
     },
     {
       "src": "assets/original/model/Failure Cases/Asian_model_wearing_couture_dress_202606092008_2.jpeg",
-      "title": "Asian model wearing couture dress 202606092008 2",
+      "title": "Overstyled Couture Dress",
       "group": "실패"
     },
     {
       "src": "assets/original/model/Failure Cases/Fashion_model_in_architectural_s…_202606092008.jpeg",
-      "title": "Fashion model in architectural s… 202606092008",
+      "title": "Architecture Overpowers Model",
       "group": "실패"
     },
     {
       "src": "assets/original/model/Failure Cases/Female_model_in_couture_dress_202606092008.jpeg",
-      "title": "Female model in couture dress 202606092008",
+      "title": "Too Formal for Home Visual",
       "group": "실패"
     },
     {
       "src": "assets/original/model/Failure Cases/Female_model_wearing_avant-garde…_202606092008.jpeg",
-      "title": "Female model wearing avant-garde… 202606092008",
+      "title": "Avant-garde Styling Too Strong",
       "group": "실패"
     },
     {
       "src": "assets/original/model/Failure Cases/Futuristic_gallery_interior_fash…_202606092008.jpeg",
-      "title": "Futuristic gallery interior fash… 202606092008",
+      "title": "Background Too Dominant",
       "group": "실패"
     },
     {
       "src": "assets/original/model/Failure Cases/Futuristic_gallery_interior_fash…_202606092008_2.jpeg",
-      "title": "Futuristic gallery interior fash… 202606092008 2",
+      "title": "Set Design Distracts Product",
       "group": "실패"
     },
     {
       "src": "assets/original/model/Failure Cases/Model_wearing_black_sculptural_o…_202606092008.jpeg",
-      "title": "Model wearing black sculptural o… 202606092008",
+      "title": "Silhouette Too Heavy",
       "group": "실패"
     },
     {
       "src": "assets/original/model/Failure Cases/Model_wearing_draped_top_trousers_202606092008.jpeg",
-      "title": "Model wearing draped top trousers 202606092008",
+      "title": "Weak Brand Impact",
       "group": "실패"
     },
     {
       "src": "assets/original/model/Failure Cases/Models_in_futuristic_luxury_outfits_202606092008.jpeg",
-      "title": "Models in futuristic luxury outfits 202606092008",
+      "title": "Group Styling Too Busy",
       "group": "실패"
     },
     {
       "src": "assets/original/model/Failure Cases/Models_in_industrial_location_ca…_202606092008.jpeg",
-      "title": "Models in industrial location ca… 202606092008",
+      "title": "Industrial Mood Too Harsh",
       "group": "실패"
     }
   ],
   "files": {
-    "excel": "assets/original/luxury_fashion_accessory_prompt_bulk_template.xlsx",
-    "promptMd": "assets/original/md)fash img prompt.md",
-    "noteMd": "assets/original/md)note.md",
-    "webHtml": "assets/original/HTML img 수정본/f_index.html"
+    "excel": "assets/original/luxury_fashion_accessory_prompt_bulk_template.xlsx",    "webHtml": "assets/original/HTML img 수정본/f_index.html"
   }
 }
 
 const $ = (selector) => document.querySelector(selector);
 
-function makeCard(item, compact=false) {
+function makeCard(item, compact=false, hideCaption=false) {
   const fig = document.createElement('figure');
   fig.className = compact ? 'asset-card compact' : 'asset-card';
   const img = document.createElement('img');
   img.src = item.src;
   img.alt = item.title || item.file || 'portfolio asset';
   img.loading = 'lazy';
-  const cap = document.createElement('figcaption');
-  const title = document.createElement('strong');
-  title.textContent = item.title || item.group || 'Image';
-  const meta = document.createElement('span');
-  meta.textContent = item.group ? item.group : (item.file || '');
-  cap.append(title, meta);
-  fig.append(img, cap);
+
+  if (/\.(png|jpe?g)$/i.test(item.src || '')) {
+    img.classList.add('clickable-image');
+    img.addEventListener('click', () => openImagePopup(item));
+  }
+
+  fig.append(img);
+
+  if (!hideCaption) {
+    const cap = document.createElement('figcaption');
+    const title = document.createElement('strong');
+    title.textContent = item.title || item.group || 'Image';
+    cap.append(title);
+    if (!item.noMeta) {
+      const meta = document.createElement('span');
+      meta.textContent = item.group ? item.group : (item.file || '');
+      cap.append(meta);
+    }
+    fig.append(cap);
+  }
+
   return fig;
 }
 
-function renderGrid(id, items, compact=false) {
+function renderGrid(id, items, compact=false, hideCaption=false) {
   const el = document.getElementById(id);
   if (!el) return;
-  items.forEach(item => el.append(makeCard(item, compact)));
+  el.innerHTML = '';
+  items.forEach(item => el.append(makeCard(item, compact, hideCaption)));
 }
 
-renderGrid('moodGrid', portfolioData.mood);
-renderGrid('draftGrid', portfolioData.draft);
-renderGrid('revisedGrid', portfolioData.revised);
-renderGrid('bulkGrid', portfolioData.bulk, true);
-renderGrid('shoppingGrid', portfolioData.sm, true);
-renderGrid('modelGrid', portfolioData.model, true);
+function renderShopping(group = 'Mismatch') {
+  const items = portfolioData.sm.filter(item => item.group === group);
+  renderGrid('shoppingGrid', items, true, true);
+}
+
+renderGrid('moodGrid', portfolioData.mood, false, true);
+renderGrid('draftGrid', portfolioData.draft, false, true);
+renderGrid('revisedGrid', portfolioData.revised, false, true);
+renderGrid('bulkGrid', portfolioData.bulk, true, true);
+renderShopping('Mismatch');
+renderGrid('modelSuccessGrid', portfolioData.model.filter(item => item.group === '성공').map(item => ({ ...item, noMeta: true })), true);
+renderGrid('modelFailGrid', portfolioData.model.filter(item => item.group === '실패').map(item => ({ ...item, noMeta: true })), true);
+
+document.querySelectorAll('[data-shopping-filter]').forEach((button) => {
+  button.addEventListener('click', () => {
+    document.querySelectorAll('[data-shopping-filter]').forEach((item) => item.classList.remove('active'));
+    button.classList.add('active');
+    renderShopping(button.dataset.shoppingFilter);
+  });
+});
+
+
+
+function openImagePopup(item) {
+  let modal = document.querySelector('.image-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.className = 'image-modal';
+    modal.innerHTML = `
+      <button class="image-modal-close" type="button" aria-label="닫기">×</button>
+      <div class="image-modal-inner">
+        <img alt="" />
+      </div>
+    `;
+    document.body.append(modal);
+
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal || event.target.classList.contains('image-modal-close')) {
+        closeImagePopup();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeImagePopup();
+    });
+  }
+
+  const img = modal.querySelector('img');
+  img.src = item.src;
+  img.alt = item.title || item.file || '원본 이미지';
+  modal.classList.add('open');
+  document.body.classList.add('modal-open');
+}
+
+function closeImagePopup() {
+  const modal = document.querySelector('.image-modal');
+  if (!modal) return;
+  modal.classList.remove('open');
+  document.body.classList.remove('modal-open');
+}
 
 document.querySelectorAll('[data-file-link]').forEach((el) => {
   const key = el.dataset.fileLink;
