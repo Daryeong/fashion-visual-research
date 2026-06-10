@@ -380,3 +380,33 @@ body.modal-open{overflow:hidden}
 }
 
 .webfinal-group-final { margin-top: 48px; }
+
+
+/* Prompt Sheet intro: centered reading block */
+#prompt .prompt-intro{
+  max-width: 900px;
+  margin: 28px auto 34px;
+  padding: 32px 36px;
+  text-align: center;
+  line-height: 1.9;
+  color: var(--soft);
+  background: rgba(255,255,255,.035);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+}
+#prompt .prompt-intro strong{
+  display:inline-block;
+  margin-bottom:4px;
+  color:#fff;
+}
+#prompt .file-links{
+  justify-content:center;
+}
+@media (max-width:640px){
+  #prompt .prompt-intro{
+    text-align:left;
+    padding:24px 20px;
+    margin-left:0;
+    margin-right:0;
+  }
+}

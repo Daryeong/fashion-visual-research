@@ -377,23 +377,27 @@ const portfolioData = {
   "bulk": [
     {
       "src": "assets/original/대량프롬프트_사용법.png",
-      "title": "대량프롬프트 사용법",
-      "file": "대량프롬프트_사용법.png"
+      "title": "[사용법]",
+      "file": "대량프롬프트_사용법.png",
+      "summary": "템플릿을 어떤 순서로 쓰는지 정리했습니다."
     },
     {
       "src": "assets/original/대량프롬프트_요약.png",
-      "title": "대량프롬프트 요약",
-      "file": "대량프롬프트_요약.png"
+      "title": "[요약]",
+      "file": "대량프롬프트_요약.png",
+      "summary": "카테고리별 프롬프트 수와 구조를 확인할 수 있도록 정리했습니다."
     },
     {
       "src": "assets/original/대량프롬프트_재료.png",
-      "title": "대량프롬프트 재료",
-      "file": "대량프롬프트_재료.png"
+      "title": "[재료]",
+      "file": "대량프롬프트_재료.png",
+      "summary": "카테고리, 소재, 색, 조명, 배경, 무드 목록을 정리했습니다."
     },
     {
       "src": "assets/original/대량프롬프트_대량프롬프트.png",
-      "title": "대량프롬프트 대량프롬프트",
-      "file": "대량프롬프트_대량프롬프트.png"
+      "title": "[대량프롬프트]",
+      "file": "대량프롬프트_대량프롬프트.png",
+      "summary": "바로 복사해 쓸 수 있는 완성형 문장을 정리했습니다."
     }
   ],
   "sm": [
@@ -541,6 +545,11 @@ const portfolioData = {
       "group": "성공"
     },
     {
+      "src": "assets/original/model/Success/model_selected_home_visual_set_04.png",
+      "title": "Selected Home Visual Set",
+      "group": "성공"
+    },
+    {
       "src": "assets/original/model/Failure Cases/Asian_model_wearing_couture_dress_202606092008.jpeg",
       "title": "Couture Dress Mood Mismatch",
       "group": "실패"
@@ -556,23 +565,8 @@ const portfolioData = {
       "group": "실패"
     },
     {
-      "src": "assets/original/model/Failure Cases/Female_model_in_couture_dress_202606092008.jpeg",
-      "title": "Too Formal for Home Visual",
-      "group": "실패"
-    },
-    {
       "src": "assets/original/model/Failure Cases/Female_model_wearing_avant-garde…_202606092008.jpeg",
       "title": "Avant-garde Styling Too Strong",
-      "group": "실패"
-    },
-    {
-      "src": "assets/original/model/Failure Cases/Futuristic_gallery_interior_fash…_202606092008.jpeg",
-      "title": "Background Too Dominant",
-      "group": "실패"
-    },
-    {
-      "src": "assets/original/model/Failure Cases/Futuristic_gallery_interior_fash…_202606092008_2.jpeg",
-      "title": "Set Design Distracts Product",
       "group": "실패"
     },
     {
@@ -593,6 +587,21 @@ const portfolioData = {
     {
       "src": "assets/original/model/Failure Cases/Models_in_industrial_location_ca…_202606092008.jpeg",
       "title": "Industrial Mood Too Harsh",
+      "group": "실패"
+    },
+    {
+      "src": "assets/original/model/Failure Cases/model_rejected_home_pose_01.png",
+      "title": "Rejected Home Pose 01",
+      "group": "실패"
+    },
+    {
+      "src": "assets/original/model/Failure Cases/model_rejected_grid_output_02.png",
+      "title": "Rejected Grid Output",
+      "group": "실패"
+    },
+    {
+      "src": "assets/original/model/Failure Cases/model_rejected_home_pose_03.png",
+      "title": "Rejected Home Pose 03",
       "group": "실패"
     }
   ],
@@ -745,7 +754,7 @@ function renderShopping(group = 'Mismatch') {
 renderGrid('moodGrid', portfolioData.mood, false, false);
 renderGrid('draftGrid', portfolioData.draft, false, false);
 renderGrid('revisedGrid', portfolioData.revised, false, true);
-renderGrid('bulkGrid', portfolioData.bulk, true, true);
+renderGrid('bulkGrid', portfolioData.bulk, true, false);
 renderShopping('Mismatch');
 renderGrid('modelSuccessGrid', portfolioData.model.filter(item => item.group === '성공').map(item => ({ ...item, noMeta: true })), true);
 renderGrid('modelFailGrid', portfolioData.model.filter(item => item.group === '실패').map(item => ({ ...item, noMeta: true })), true);
