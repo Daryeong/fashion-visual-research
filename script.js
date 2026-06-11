@@ -129,7 +129,7 @@ const portfolioData = {
       "src": "assets/original/HTML img 초안본/05_menu_left_duplicate_remove.png",
       "title": "Full Menu Revision",
       "file": "05_menu_left_duplicate_remove.png",
-      "summary": "상단 가운데 메뉴를 정리하고, 29CM처럼 크게 열리는 전체 메뉴 구조로 수정했습니다."
+      "summary": "상단 가운데 메뉴를 정리하고, 크게 열리는 전체 메뉴 구조로 수정했습니다."
     },
     {
       "src": "assets/original/HTML img 초안본/06_Language-기능 추가.png",
@@ -529,77 +529,82 @@ const portfolioData = {
     }
 ],
   "model": [
-    {
+{
       "src": "assets/original/model/Success/Female_model_wearing_black_coat_202606092008.jpeg",
       "title": "Black Coat Editorial Look",
       "group": "성공"
     },
-    {
-      "src": "assets/original/model/Success/Model_wearing_sculptural_black_o…_202606092008.jpeg",
-      "title": "Sculptural Black Outfit",
-      "group": "성공"
-    },
-    {
-      "src": "assets/original/model/Success/VELUNE_fashion_campaign_models_d…_202606092008.jpeg",
-      "title": "VELUNE Campaign Pair",
-      "group": "성공"
-    },
-    {
+{
       "src": "assets/original/model/Success/model_selected_home_visual_set_04.png",
       "title": "Selected Home Visual Set",
       "group": "성공"
     },
-    {
+{
+      "src": "assets/original/model/Success/model_selected_home_visual_magazine_02.png",
+      "title": "Magazine Home Visual Set",
+      "group": "성공"
+    },
+{
+      "src": "assets/original/model/Success/Model_wearing_sculptural_black_o…_202606092008.jpeg",
+      "title": "Sculptural Black Outfit",
+      "group": "성공"
+    },
+{
+      "src": "assets/original/model/Success/VELUNE_fashion_campaign_models_d…_202606092008.jpeg",
+      "title": "VELUNE Campaign Pair",
+      "group": "성공"
+    },
+{
       "src": "assets/original/model/Failure Cases/Asian_model_wearing_couture_dress_202606092008.jpeg",
       "title": "Couture Dress Mood Mismatch",
       "group": "실패"
     },
-    {
+{
       "src": "assets/original/model/Failure Cases/Asian_model_wearing_couture_dress_202606092008_2.jpeg",
       "title": "Overstyled Couture Dress",
       "group": "실패"
     },
-    {
+{
       "src": "assets/original/model/Failure Cases/Fashion_model_in_architectural_s…_202606092008.jpeg",
       "title": "Architecture Overpowers Model",
       "group": "실패"
     },
-    {
+{
       "src": "assets/original/model/Failure Cases/Female_model_wearing_avant-garde…_202606092008.jpeg",
       "title": "Avant-garde Styling Too Strong",
       "group": "실패"
     },
-    {
+{
       "src": "assets/original/model/Failure Cases/Model_wearing_black_sculptural_o…_202606092008.jpeg",
       "title": "Silhouette Too Heavy",
       "group": "실패"
     },
-    {
+{
       "src": "assets/original/model/Failure Cases/Model_wearing_draped_top_trousers_202606092008.jpeg",
       "title": "Weak Brand Impact",
       "group": "실패"
     },
-    {
+{
       "src": "assets/original/model/Failure Cases/Models_in_futuristic_luxury_outfits_202606092008.jpeg",
       "title": "Group Styling Too Busy",
       "group": "실패"
     },
-    {
+{
       "src": "assets/original/model/Failure Cases/Models_in_industrial_location_ca…_202606092008.jpeg",
       "title": "Industrial Mood Too Harsh",
       "group": "실패"
     },
-    {
+{
       "src": "assets/original/model/Failure Cases/model_rejected_home_pose_01.png",
       "title": "Rejected Home Pose 01",
       "group": "실패"
     },
-    {
+{
       "src": "assets/original/model/Failure Cases/model_rejected_grid_output_02.png",
       "title": "Rejected Grid Output",
       "group": "실패"
     },
-    {
+{
       "src": "assets/original/model/Failure Cases/model_rejected_home_pose_03.png",
       "title": "Rejected Home Pose 03",
       "group": "실패"
@@ -835,3 +840,97 @@ document.querySelectorAll('[data-file-link]').forEach((el) => {
   const key = el.dataset.fileLink;
   if (portfolioData.files[key]) el.href = portfolioData.files[key];
 });
+
+// 수정: 상단 메뉴와 Project Flow 카드가 같은 상세 화면 전환 로직을 공유
+(function initFlowPanels(){
+  const flowSection = document.querySelector('.fullscreen-flow');
+  if (!flowSection) return;
+
+  const panels = Array.from(flowSection.querySelectorAll('[data-flow-panel]'));
+  const triggers = Array.from(document.querySelectorAll('[data-flow-target]'));
+  const homeTriggers = Array.from(document.querySelectorAll('[data-flow-home]'));
+  const header = document.querySelector('.site-header');
+  const projectHero = document.querySelector('.project-hero');
+
+  function setActive(id){
+    triggers.forEach((trigger) => {
+      trigger.classList.toggle('active', trigger.dataset.flowTarget === id);
+    });
+  }
+
+  function getHeaderOffset(){
+    return (header ? header.offsetHeight : 0) + 18;
+  }
+
+  function scrollToSectionTop(target){
+    const heading = target.querySelector('h2, h3');
+    const anchor = heading || target;
+    const top = anchor.getBoundingClientRect().top + window.scrollY - getHeaderOffset();
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+  }
+
+  function ensureBackButton(panel){
+    if (panel.querySelector('[data-flow-back]')) return;
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'flow-back';
+    button.dataset.flowBack = '';
+    button.textContent = '← Back';
+    button.addEventListener('click', closeSection);
+
+    panel.prepend(button);
+  }
+
+  function openSection(id){
+    const target = panels.find((panel) => panel.id === id);
+    if (!target) return;
+
+    panels.forEach((panel) => panel.classList.remove('active'));
+    ensureBackButton(target);
+    target.classList.add('active');
+
+    flowSection.classList.add('detail-open');
+    document.body.classList.add('flow-detail-open');
+
+    setActive(id);
+    history.replaceState(null, '', `#${id}`);
+
+    requestAnimationFrame(() => scrollToSectionTop(target));
+  }
+
+  function closeSection(){
+    panels.forEach((panel) => panel.classList.remove('active'));
+    flowSection.classList.remove('detail-open');
+    document.body.classList.remove('flow-detail-open');
+
+    setActive('');
+    history.replaceState(null, '', '#contents');
+
+    const topTarget = projectHero || flowSection;
+    const top = topTarget.getBoundingClientRect().top + window.scrollY - getHeaderOffset();
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+  }
+
+  triggers.forEach((trigger) => {
+    trigger.addEventListener('click', (event) => {
+      event.preventDefault();
+      openSection(trigger.dataset.flowTarget);
+    });
+  });
+
+  homeTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', (event) => {
+      event.preventDefault();
+      closeSection();
+    });
+  });
+
+  const initialHash = decodeURIComponent(location.hash.replace('#', ''));
+  if (initialHash && panels.some((panel) => panel.id === initialHash)) {
+    requestAnimationFrame(() => openSection(initialHash));
+  }
+
+  window.openSection = openSection;
+  window.closeSection = closeSection;
+})();

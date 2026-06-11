@@ -4,121 +4,215 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Curation Portfolio · AI Research & Design</title>
-  <link rel="stylesheet" href="styles.css?v=20260611-1" />
+  <link rel="stylesheet" href="styles.css?v=20260612-1" />
 </head>
 <body>
 <header class="site-header">
   <nav class="nav">
     <a class="logo" href="#">Da Ryeong Choi</a>
     <div class="links">
-      <a href="#contents">Contents</a>
-      <a href="#moodboard">Concept Draft</a>
-      <a href="#html-draft">Web Draft</a>
-      <a href="#html-revised">Web Final</a>
-      <a href="#shopping">Product Errors</a>
-      <a href="#prompt">Prompt Sheet</a>
-      <a href="#model">Model Images</a>
+      <a href="#contents" data-flow-home>홈으로</a>
+      <a href="#concept-card" data-flow-target="concept-card">컨셉초안</a>
+      <a href="#initial-card" data-flow-target="initial-card">초기방향</a>
+      <a href="#final-card" data-flow-target="final-card">최종방향</a>
+      <a href="#trial-card" data-flow-target="trial-card">시행착오</a>
     </div>
   </nav>
 </header>
 
 <main>
-  <section class="hero">
-    <div>
-      <p class="eyebrow">Curation Portfolio · AI Research & Design</p>
-      <h1>Fashion Web<br/>Curation System</h1>
-      <p class="lead">패션 쇼핑몰을 만들기 위해 초기 컨셉을 중심으로 웹 화면, 상품 이미지, 모델 이미지를 나눠 실험하고 정리한 작업입니다.</p>
-</div>
-    <div class="hero-grid">
-      <div class="info-card"><span>지원 방향</span><strong>AI Research & Design</strong></div>
-      <div class="info-card"><span>강점</span><strong>무드 정리 · 결과 선별 · 화면 구성</strong></div>
-      <div class="info-card"><span>관심 분야</span><strong>Fashion Web · Visual Curation</strong></div>
-      <div class="info-card"><span>사용 툴</span><strong>HTML · CSS · JS · AI · Excel Prompt</strong></div>
+  <section class="hero project-hero">
+    <div class="project-intro">
+      <p class="eyebrow">VELUNE</p>
+      <h1>AI Fashion Brand<br/>Web Project</h1>
+      <p class="lead">AI를 활용해 가상의 패션 브랜드 VELUNE을 기획하고, 대량 엑셀 프롬프트 기반 이미지 생성, 상품 구조, 카테고리 설계, 웹 화면 구성까지 HTML/CSS/JS 기반 웹사이트로 완성한 프로젝트입니다.</p>
+      <p class="project-date">2026.06.01 — 2026.06.11</p>
     </div>
-    <div class="toc" id="contents">
-        <a href="#moodboard">01 Concept Draft</a>
-        <a href="#html-draft">02 Web Draft</a>
-        <a href="#html-revised">03 Web Final</a>
-        <a href="#shopping">04 Product Errors</a>
-        <a href="#prompt">05 Prompt Sheet</a>
-        <a href="#model">06 Model Images</a>
+
+    <!-- 추가: Timeline / Process -->
+    <div class="timeline-process" aria-label="Timeline / Process">
+      <div class="timeline-head">
+        <p class="eyebrow">Timeline / Process</p>
+        <h2>Project Process</h2>
       </div>
+
+      <ol class="timeline-list">
+        <li>
+          <time>06.01</time>
+          <div>
+            <h3>Direction & Reference Research</h3>
+            <p>브랜드 이미지, 디자인 프롬프트, 오픈소스 디자인 자료를 조사하고 Dover Street Market, MSCHF, MACHINE-A 등의 사례를 참고해 VELUNE의 브랜드 방향과 웹 구조를 구체화했습니다.</p>
+          </div>
+        </li>
+        <li>
+          <time>06.02 — 06.04</time>
+          <div>
+            <h3>AI Image Generation</h3>
+            <p>대량 엑셀 프롬프트를 활용해 상품 이미지와 모델 이미지를 생성했습니다. 생성 결과를 비교하며 VELUNE의 브랜드 무드에 맞는 이미지 방향을 정리했습니다.</p>
+          </div>
+        </li>
+        <li>
+          <time>06.06 — 06.09</time>
+          <div>
+            <h3>Web Function & Structure Planning</h3>
+            <p>쇼핑몰 웹사이트에 필요한 기본 구조와 기능을 설계했습니다. 상품 목록, 상품 상세 페이지, 카테고리 메뉴, 검색, 필터, 장바구니, 찜 기능, Quick View 등 주요 쇼핑 흐름을 정리하고, 이를 HTML/CSS/JS 기반의 웹사이트 결과물로 완성했습니다.</p>
+          </div>
+        </li>
+        <li>
+          <time>06.09 — 06.11</time>
+          <div>
+            <h3>Portfolio Documentation & Shopping Mall Refinement</h3>
+            <p>완성된 쇼핑몰 웹사이트를 바탕으로 포트폴리오 구성을 정리하고, 상품명, 카테고리 체계, 상세 페이지, 이미지 구성, 메뉴 구조를 보완하며 최종 결과물의 완성도를 높였습니다.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
   </section>
 
-  <section class="section">
-    <div class="section-head">
+  <!-- 수정: 전체 화면형 4개 카드 목차 -->
+  <section class="section flow-section fullscreen-flow" id="contents">
+    <div class="section-head flow-overview-head">
       <div>
-        <h2>Project Overview</h2>
-        <p class="section-desc">회색 톤의 패션 웹을 기준으로, 컨셉 이미지부터 실제 웹 화면과 상품 이미지까지 순서대로 정리했습니다.</p>
+        <h2>Project Flow</h2>
+        <p class="section-desc">컨셉초안에서 최종 결과까지, 각 단계의 이미지와 판단 기준을 크게 확인할 수 있도록 구성했습니다.</p>
       </div>
     </div>
-    <div class="project-block">
-      <h3>Goal / Process / Result / Tools</h3>
-      <div class="meta-row">
-        <div><span>Goal</span>패션 쇼핑몰에 맞는 분위기와 화면 구성을 찾고, 실제 홈 화면에 쓸 수 있는 이미지 기준을 정리하기</div>
-        <div><span>Process</span>컨셉 초안 제작 → 웹 화면 초안 → 수정본 비교 → 상품/모델 이미지 성공·실패 분류 순서로 작업을 정리했습니다.</div>
-        <div><span>Result</span>무드보드, 웹 화면, 상품 이미지, 모델 이미지가 한 흐름으로 보이도록 정리</div>
-        <div><span>Tools</span>HTML · CSS · JS · AI · Prompt Sheet</div>
-      </div>
-    </div>
-  </section>
 
-  <section class="section" id="moodboard">
-    <h2>01. Concept Draft</h2>
-    <p class="section-desc">컨셉 초안입니다. 미래적인 분위기, 패션 쇼핑몰의 판매 화면, 어두운 톤과 밝은 톤의 차이를 비교하며 방향을 잡았습니다.</p>
-    <div class="meta-row">
-      <div><span>Goal</span>웹 전체 분위기를 먼저 잡기</div>
-      <div><span>Process</span>레퍼런스 정리 → 톤 비교 → 화면형 이미지로 확장</div>
-      <div><span>Result</span>패션 웹에 맞는 회색 중심의 차분한 방향 선택</div>
-      <div><span>Tools</span>Image Generation · Mood Research</div>
+    <!-- 수정: 목차 카드 클릭 시 상세 화면으로 전환 -->
+    <div class="flow-launch-grid" data-flow-menu>
+      <button class="flow-launch-card" type="button" data-flow-target="concept-card">
+        <span>컨셉초안</span>
+        <small>레퍼런스 분석과 초기 무드 설정</small>
+      </button>
+      <button class="flow-launch-card" type="button" data-flow-target="initial-card">
+        <span>초기방향</span>
+        <small>웹 화면 초안과 기능 흐름 실험</small>
+      </button>
+      <button class="flow-launch-card" type="button" data-flow-target="final-card">
+        <span>최종방향</span>
+        <small>최종 웹사이트 화면과 구현 구조</small>
+      </button>
+      <button class="flow-launch-card" type="button" data-flow-target="trial-card">
+        <span>시행착오</span>
+        <small>AI 이미지 생성, 오류 분류, 선별 기준</small>
+      </button>
     </div>
-    <div class="grid wide" id="moodGrid"></div>
-  </section>
 
-  <section class="section" id="html-draft">
-    <h2>02. Web Draft</h2>
-    <p class="section-desc">전체 웹 페이지 이미지 초안본. 홈, 메뉴, 검색, 장바구니, 구매 화면 등 실제 쇼핑몰 흐름을 화면 단위로 나눠 확인했습니다.</p>
-    <div class="meta-row">
-      <div><span>Goal</span>쇼핑몰 기본 흐름을 화면으로 빠르게 확인하기</div>
-      <div><span>Process</span>홈 화면 → 메뉴 → 검색 → 장바구니 → 구매 화면 순서로 구성</div>
-      <div><span>Result</span>사용 흐름은 잡혔지만, 톤과 정리 방식은 수정이 필요하다고 판단</div>
-      <div><span>Tools</span>HTML · CSS · Screen Capture</div>
-    </div>
-    <div class="grid" id="draftGrid"></div>
-  </section>
+    <!-- 수정: 컨셉초안 상세 화면 -->
+    <article class="flow-detail" id="concept-card" data-flow-panel>
 
-  <section class="section" id="html-revised">
-    <h2>03. Web Final</h2>
-    <p class="section-desc">전체 웹 페이지 이미지 수정본. 초안에서 보인 어색한 부분을 줄이고, 홈 화면과 메뉴 구조가 더 분명하게 보이도록 정리했습니다.</p>
-    <div class="meta-row">
-      <div><span>Goal</span>브랜드 느낌과 사용 흐름이 같이 보이는 웹 화면 만들기</div>
-      <div><span>Process</span>초안 비교 → 메뉴 구조 정리 → 홈 화면 완성도 조정 → 세부 화면 연결</div>
-      <div><span>Result</span>홈, 카테고리, 검색, 위시리스트, 장바구니 흐름을 한 세트로 정리</div>
-      <div><span>Tools</span>HTML · CSS · JavaScript</div>
-    </div>
-    <div class="grid" id="revisedGrid"></div>
-  </section>
+          <section class="nested-section" id="moodboard">
+            <h2>컨셉초안</h2>
+            <p class="section-desc">컨셉 초안입니다. 미래적인 분위기, 패션 쇼핑몰의 판매 화면, 어두운 톤과 밝은 톤의 차이를 비교하며 방향을 잡았습니다.</p>
 
-  <section class="section" id="shopping">
-    <h2>04. Product Errors</h2>
-    <p class="section-desc">옷 이미지 생성 결과에서 수정이 필요한 유형을 미스매치, 로고 오류, 톤앤무드로 나눠 정리했습니다.</p>
-    <div class="meta-row">
-      <div><span>Goal</span>쇼핑몰에 올릴 수 있는 이미지 기준 세우기</div>
-      <div><span>Process</span>대량 생성 → 이미지 확인 → 오류 유형 분류 → 다음 프롬프트 기준 정리</div>
-      <div><span>Result</span>로고, 제품 형태, 색감, 브랜드 무드 기준을 따로 확인해야 함을 정리</div>
-      <div><span>Tools</span>Image Generation · Prompt Review</div>
-    </div>
-    <div class="filter-tabs" aria-label="옷 이미지 오류 유형">
-      <button class="filter-button active" data-shopping-filter="Mismatch">Mismatch</button>
-      <button class="filter-button" data-shopping-filter="Logo">Logo Error</button>
-      <button class="filter-button" data-shopping-filter="Tone & Mood">Tone & Mood</button>
-    </div>
-    <div class="grid compact" id="shoppingGrid"></div>
-  </section>
+            <div class="meta-row">
+              <div><span>Goal</span>웹 전체 분위기를 먼저 잡기</div>
+              <div><span>Process</span>레퍼런스 정리 → 톤 비교 → 화면형 이미지로 확장</div>
+              <div><span>Result</span>패션 웹에 맞는 회색 중심의 차분한 방향 선택</div>
+              <div><span>Tools</span>Image Generation · Mood Research</div>
+            </div>
 
-  <section class="section" id="prompt">
-    <h2>05. Prompt Sheet</h2>
-    <p class="section-desc prompt-intro">패션 액세서리와 소품 이미지를 여러 장 만들 수 있도록, 프롬프트가 자동으로 조합되는 엑셀 템플릿을 제작했습니다.<br><br>
+            <!-- 추가: 레퍼런스 분석 설명 -->
+            <div class="project-block compact-note">
+              <h3>Reference Analysis</h3>
+              <p>RunwayML, x.ai, Linear의 디자인 구조를 확인한 뒤, 패션 쇼핑몰 화면에 적용할 수 있는 큰 이미지, 적은 텍스트, 정제된 카드 UI 방향을 선별했습니다.</p>
+              <p>초기에는 미래적인 화면에 가까웠지만, 실제 판매 화면과 브랜드 무드가 함께 보이도록 점차 방향을 수정했습니다.</p>
+            </div>
+
+            <div class="grid wide" id="moodGrid"></div>
+          </section>
+
+    </article>
+
+    <!-- 수정: 초기방향 상세 화면 -->
+    <article class="flow-detail" id="initial-card" data-flow-panel>
+
+          <section class="nested-section" id="html-draft">
+            <h2>초기방향</h2>
+            <p class="section-desc">전체 웹 페이지 이미지 초안본입니다. 홈, 메뉴, 검색, 장바구니, 구매 화면 등 실제 쇼핑몰 흐름을 화면 단위로 나눠 확인했습니다.</p>
+
+            <div class="meta-row">
+              <div><span>Goal</span>쇼핑몰 기본 흐름을 화면으로 빠르게 확인하기</div>
+              <div><span>Process</span>홈 화면 → 메뉴 → 검색 → 장바구니 → 구매 화면 순서로 구성</div>
+              <div><span>Result</span>사용 흐름은 잡혔지만, 톤과 정리 방식은 수정이 필요하다고 판단</div>
+              <div><span>Tools</span>HTML · CSS · Screen Capture</div>
+            </div>
+
+            <!-- 추가: 초기 방향과 수정 필요점 -->
+            <div class="project-block compact-note">
+              <h3>Draft Review</h3>
+              <p>초안에서는 기능 흐름을 먼저 확인했습니다. 검색, 장바구니, 찜, 카테고리 이동은 작동했지만 화면이 복잡하게 보였고, 패션 브랜드의 첫인상보다 기능 요소가 먼저 보이는 문제가 있었습니다.</p>
+              <p>이후 최종 방향에서는 기능 수를 늘리는 것보다 홈 화면, 메뉴 구조, 상품 이미지 배치가 브랜드 무드와 연결되도록 정리했습니다.</p>
+            </div>
+
+            <div class="grid" id="draftGrid"></div>
+          </section>
+
+    </article>
+
+    <!-- 수정: 최종방향 상세 화면 -->
+    <article class="flow-detail" id="final-card" data-flow-panel>
+
+          <section class="nested-section" id="html-revised">
+            <h2>최종방향</h2>
+            <p class="section-desc">전체 웹 페이지 이미지 수정본입니다. 초안에서 보인 어색한 부분을 줄이고, 홈 화면과 메뉴 구조가 더 분명하게 보이도록 정리했습니다.</p>
+
+            <div class="meta-row">
+              <div><span>Goal</span>브랜드 느낌과 사용 흐름이 같이 보이는 웹 화면 만들기</div>
+              <div><span>Process</span>초안 비교 → 메뉴 구조 정리 → 홈 화면 완성도 조정 → 세부 화면 연결</div>
+              <div><span>Result</span>홈, 카테고리, 검색, 위시리스트, 장바구니 흐름을 한 세트로 정리</div>
+              <div><span>Tools</span>HTML · CSS · JavaScript</div>
+            </div>
+
+            <!-- 추가: HTML/CSS/JavaScript 구현 설명 -->
+            <div class="project-block compact-note">
+              <h3>Implementation Summary</h3>
+              <div class="meta-row compact-meta">
+                <div><span>HTML</span>홈, 메뉴, 상품, 매거진, 계정 화면 구조 설계</div>
+                <div><span>CSS</span>다크 톤 UI, 카드 레이아웃, 반응형 화면 구성</div>
+                <div><span>JavaScript</span>이미지 팝업, 오류 유형 필터, 데이터 기반 카드 렌더링</div>
+                <div><span>Focus</span>브랜드 무드와 쇼핑몰 사용 흐름을 동시에 보여주는 구조</div>
+              </div>
+            </div>
+
+            <div class="grid" id="revisedGrid"></div>
+          </section>
+
+    </article>
+
+    <!-- 수정: 시행착오 상세 화면 -->
+    <article class="flow-detail" id="trial-card" data-flow-panel>
+
+          <section class="nested-section trial-section">
+            <h2>시행착오</h2>
+            <p class="section-desc">AI 이미지 생성 결과를 그대로 사용하는 대신, 상품 이미지와 모델 이미지를 기준에 맞게 분류하고 다음 수정 방향을 정리했습니다.</p>
+
+            <!-- 추가: AI Image Generation 계층 -->
+            <div class="ai-tree">
+              <h3>AI Image Generation</h3>
+
+              <section class="sub-section" id="shopping">
+                <h4>Product Image</h4>
+                <p class="section-desc">옷 이미지 생성 결과에서 수정이 필요한 유형을 미스매치, 로고 오류, 톤앤무드로 나눠 정리했습니다.</p>
+
+                <div class="meta-row">
+                  <div><span>Goal</span>쇼핑몰에 올릴 수 있는 이미지 기준 세우기</div>
+                  <div><span>Process</span>대량 생성 → 이미지 확인 → 오류 유형 분류 → 다음 프롬프트 기준 정리</div>
+                  <div><span>Result</span>로고, 제품 형태, 색감, 브랜드 무드 기준을 따로 확인해야 함을 정리</div>
+                  <div><span>Tools</span>Image Generation · Prompt Review</div>
+                </div>
+
+                <div class="filter-tabs" aria-label="옷 이미지 오류 유형">
+                  <button class="filter-button active" data-shopping-filter="Mismatch">Mismatch</button>
+                  <button class="filter-button" data-shopping-filter="Logo">Logo Error</button>
+                  <button class="filter-button" data-shopping-filter="Tone & Mood">Tone & Mood</button>
+                </div>
+                <div class="grid compact" id="shoppingGrid"></div>
+
+                <!-- 수정: Prompt Sheet를 Product Image의 하위 자료로 배치 -->
+                <section class="support-section" id="prompt">
+                  <h5>Prompt Sheet</h5>
+                  <p class="section-desc prompt-intro">패션 액세서리와 소품 이미지를 여러 장 만들 수 있도록, 프롬프트가 자동으로 조합되는 엑셀 템플릿을 제작했습니다.<br><br>
 고급 편집숍 이미지처럼 정제된 구성은 살리되, 조금 더 개성 있고 격이 느껴지는 럭셔리 브랜드 무드를 참고했습니다. 제품 유형, 소재, 색감, 조명, 배경, 분위기를 조합해 다양한 이미지 프롬프트를 만들 수 있도록 구성했습니다.<br><br>
 컬러는 블랙, 차콜, 실버, 버건디, 포슬린 화이트, 산성 포인트 컬러를 중심으로 잡았습니다.<br><br>
 참고한 무드는 다음과 같습니다.<br><br>
@@ -128,32 +222,65 @@ SSENSE, Mytheresa, NET-A-PORTER, LN-CC<br><br>
 Rick Owens, Maison Margiela, Yohji Yamamoto, The Row<br><br>
 <strong>고급스럽지만 뻔하지 않은 무드</strong><br>
 H.Lorenzo, Antonioli, LEMAIRE, Dries Van Noten</p>
-    <div class="meta-row">
-      <div><span>Goal</span>상품 이미지를 한 장씩 만드는 방식에서 벗어나 반복 제작 구조 만들기</div>
-      <div><span>Process</span>재료 목록 정리 → 입력 템플릿 구성 → 완성 프롬프트 생성 → 결과 이미지 검수</div>
-      <div><span>Result</span>300개 프롬프트, 입력 템플릿, 360뷰 24컷, 재료표, 요약 시트로 구성</div>
-      <div><span>Tools</span>Excel · Prompt System</div>
-    </div>
-    <div class="file-links">
-      <a class="button" data-file-link="excel" href="#">엑셀 템플릿 보기</a>
-    </div>
-    <div class="grid compact" id="bulkGrid"></div>
+
+                  <div class="meta-row">
+                    <div><span>Goal</span>상품 이미지를 한 장씩 만드는 방식에서 벗어나 반복 제작 구조 만들기</div>
+                    <div><span>Process</span>재료 목록 정리 → 입력 템플릿 구성 → 완성 프롬프트 생성 → 결과 이미지 검수</div>
+                    <div><span>Result</span>300개 프롬프트, 입력 템플릿, 360뷰 24컷, 재료표, 요약 시트로 구성</div>
+                    <div><span>Tools</span>Excel · Prompt System</div>
+                  </div>
+                  <div class="file-links">
+                    <a class="button" data-file-link="excel" href="#">엑셀 템플릿 보기</a>
+                  </div>
+                  <div class="grid compact" id="bulkGrid"></div>
+                </section>
+              </section>
+
+              <section class="sub-section" id="model">
+                <h4>Model Images</h4>
+                <p class="section-desc">쇼핑몰 홈 화면에 들어갈 모델 이미지를 성공과 실패로 나눴습니다. 의상, 포즈, 배경, 브랜드 무드가 함께 맞는지 확인했습니다.</p>
+
+                <div class="meta-row">
+                  <div><span>Goal</span>홈 화면에 쓸 수 있는 모델 비주얼 고르기</div>
+                  <div><span>Process</span>모델 이미지 생성 → 홈 화면 적합도 확인 → 성공/실패 분류</div>
+                  <div><span>Result</span>과하게 튀는 결과보다 옷과 화면 분위기가 같이 맞는 이미지가 적합하다고 판단</div>
+                  <div><span>Tools</span>Image Generation · Visual Curation</div>
+                </div>
+
+                <!-- 추가: 이미지 선별 기준 -->
+                <div class="project-block compact-note">
+                  <h3>Selection Criteria</h3>
+                  <div class="meta-row compact-meta">
+                    <div><span>Product Visibility</span>의상과 실루엣이 화면에서 잘 보이는가</div>
+                    <div><span>Brand Mood</span>브랜드 무드와 어울리는가</div>
+                    <div><span>Home Visual</span>첫 화면 이미지로 사용할 수 있는가</div>
+                    <div><span>Consistency</span>전체 웹 화면과 톤이 맞는가</div>
+                  </div>
+                </div>
+
+                <div class="split-head">Selected for Home Visual</div>
+                <div class="grid compact" id="modelSuccessGrid"></div>
+                <div class="split-head fail">Rejected Cases</div>
+                <div class="grid compact" id="modelFailGrid"></div>
+              </section>
+            </div>
+
+            <!-- 추가: 프로젝트 회고 -->
+            <section class="sub-section reflection-section">
+              <h4>Project Reflection</h4>
+              <p class="section-desc">이번 프로젝트를 통해 AI 이미지 생성보다 중요한 것은 결과를 선별하고, 실패 이유를 기록하고, 다음 수정 방향으로 연결하는 과정이라는 점을 확인했습니다.</p>
+              <div class="meta-row">
+                <div><span>Planning</span>레퍼런스 분석과 방향 설정</div>
+                <div><span>AI Usage</span>프롬프트 설계와 반복 수정</div>
+                <div><span>Web Design</span>화면 구조와 사용자 흐름 설계</div>
+                <div><span>Learning</span>시행착오 기록과 결과 선별</div>
+              </div>
+            </section>
+          </section>
+
+    </article>
   </section>
 
-  <section class="section" id="model">
-    <h2>06. Model Images</h2>
-    <p class="section-desc">쇼핑몰 홈 화면에 들어갈 모델 이미지를 성공과 실패로 나눴습니다. 의상, 포즈, 배경, 브랜드 무드가 함께 맞는지 확인했습니다.</p>
-    <div class="meta-row">
-      <div><span>Goal</span>홈 화면에 쓸 수 있는 모델 비주얼 고르기</div>
-      <div><span>Process</span>모델 이미지 생성 → 홈 화면 적합도 확인 → 성공/실패 분류</div>
-      <div><span>Result</span>과하게 튀는 결과보다 옷과 화면 분위기가 같이 맞는 이미지가 적합하다고 판단</div>
-      <div><span>Tools</span>Image Generation · Visual Curation</div>
-    </div>
-    <div class="split-head">Selected for Home Visual</div>
-    <div class="grid compact" id="modelSuccessGrid"></div>
-    <div class="split-head fail">Rejected Cases</div>
-    <div class="grid compact" id="modelFailGrid"></div>
-  </section>
 </main>
 
 <footer class="footer">
@@ -161,6 +288,6 @@ H.Lorenzo, Antonioli, LEMAIRE, Dries Van Noten</p>
   <a href="#" class="back-to-top">Back to Top</a>
 </footer>
 
-<script src="script.js?v=20260611-1"></script>
+<script src="script.js?v=20260612-1"></script>
 </body>
 </html>
